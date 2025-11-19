@@ -1,13 +1,24 @@
-import '../styles/globals.css';
-import Navbar from '../components/Navbar';
-import HeroBanner from '../components/Herosection';
+'use client';
 
+import React from 'react';
+import HeroSection from '../components/Herosection';
+import About from '../components/Pages/About';
+import Services from '../components/Pages/Services';
+import VisionValues from '../components/Pages/VisionValues';
+import Contact from '../components/Pages/Contact';
+import Footer from '../components/Footer';
 
-export default function Home() {
+export default function App() {
   return (
-    <div className="relative">
-      <Navbar />
-        <HeroBanner />
+    <div className="min-h-screen font-sans">
+      <HeroSection />
+      <main>
+        <About />
+        <Services />
+        <VisionValues />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }

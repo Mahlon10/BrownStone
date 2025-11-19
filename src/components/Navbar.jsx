@@ -8,83 +8,94 @@ import '../styles/globals.css';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const links = [
-    { label: "Professionals", link: "/", isActive: pathname === "/" },
-    { label: "Designers", link: "/Designers", isActive: pathname.startsWith("/Designers") },
-    { label: "Bloggers", link: "/Blogger", isActive: pathname.startsWith("/Blogger") },
-    { label: "Developers", link: "/Developer", isActive: pathname.startsWith("/Developer") },
-    { label: "Fashion", link: "/Fashion", isActive: pathname.startsWith("/Fashion") },
-    { label: "Artists", link: "/Artist", isActive: pathname.startsWith("/Artist") },
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/#about' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Vision', href: '/#vision' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   return (
-    <nav className="z-50 fixed top-0 left-0 w-full bg-black/40 flex justify-between items-center px-8 py-7 pr-20">
-      {/* Logo */}
-      <Link href="/" className="flex items-center">
-        <img
-          src="https://i.postimg.cc/85x9Ldbs/logo.png"
-          alt="Logo"
-          className="h-7 w-auto md:h-8"
-        />
-      </Link>
-
-      {/* Desktop Navigation */}
-      <ul className="hidden md:flex gap-4">
-        {links.map((link) => (
-          <Link
-            key={link.link}
-            href={link.link}
-            className={clsx(
-              "font-medium px-3 py-1 transition duration-300 rounded-full text-white",
-              link.isActive
-                ? "bg-transparent border border-white border-2"
-                : "hover:border hover:border-white"
-            )}
-          >
-            {link.label}
-          </Link>
-        ))}
-      </ul>
-
-      {/* Hamburger Button */}
-      <div className="md:hidden z-50">
-        <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
-          {menuOpen ? (
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div className="fixed top-0 right-0 h-full w-1/2 bg-black/90 p-6 md:hidden z-40 animate-slide-in-right">
-          <ul className="flex flex-col gap-4 mt-20">
-            {links.map((link) => (
-              <Link
-                key={link.link}
-                href={link.link}
-                className={clsx(
-                  "font-medium px-3 py-1 transition duration-300 rounded-full text-white",
-                  link.isActive
-                    ? "bg-transparent border border-white border-2"
-                    : "hover:border hover:border-white"
-                )}
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </ul>
+    <header
+      aria-label="Primary navigation"
+      className="fixed top-6 right-0 z-50"
+      style={{ width: '50vw' }} /* half width: middle -> right */
+    >
+      <nav
+        className={clsx(
+          'h-16 flex items-center px-6 gap-6 text-white shadow-lg',
+          // left edge rounded fully (middle side)
+          'rounded-l-full',
+        )}
+        style={{ backgroundColor: '#00486B', backdropFilter: 'saturate(120%) blur(6px)' }}
+      >
+        <div className="flex items-center gap-3 mr-auto">
+          <div className="w-10 h-10 rounded-full bg-[#EF641C] flex items-center justify-center text-sm font-bold shadow">
+            B
+          </div>
+          <div className="hidden sm:block">
+            <div className="text-sm font-semibold">Brownstone</div>
+            <div className="text-xs" style={{ color: '#838385' }}>Construction Firm</div>
+          </div>
         </div>
-      )}
-    </nav>
+
+        <ul className="hidden md:flex items-center gap-4">
+          {links.map((l) => {
+            const isActive = pathname === l.href || (l.href !== '/' && pathname?.startsWith(l.href.replace('#', '')));
+            return (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className={clsx(
+                    'px-3 py-2 rounded-full text-sm font-medium transition-colors duration-200',
+                    isActive ? 'bg-[#EF641C] text-white' : 'text-white/90 hover:bg-white/5'
+                  )}
+                >
+                  {l.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* simple mobile toggle */}
+        <button
+          aria-label="Toggle navigation"
+          onClick={() => setOpen((s) => !s)}
+          className="md:hidden ml-2 p-2 rounded-full bg-white/10 hover:bg-white/20"
+        >
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="18" height="2" rx="1" fill="white" />
+            <rect y="5" width="18" height="2" rx="1" fill="white" />
+            <rect y="10" width="18" height="2" rx="1" fill="white" />
+          </svg>
+        </button>
+
+        {/* mobile dropdown (anchored to the right) */}
+        {open && (
+          <div
+            className="absolute right-0 mt-20 w-1/2 bg-[#00486B] rounded-r-lg rounded-b-lg shadow-lg py-3"
+            style={{ right: 0 }}
+          >
+            <ul className="flex flex-col">
+              {links.map((l) => (
+                <li key={l.href} className="px-4">
+                  <Link
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="block py-2 text-white/90 hover:bg-white/5 rounded"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 }
