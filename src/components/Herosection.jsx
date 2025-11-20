@@ -7,7 +7,7 @@ export default function HeroSection() {
     <header
       className="w-full h-screen relative flex items-center"
       style={{
-        backgroundImage: 'linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.45)), url("/hero.jpg")',
+        backgroundImage: 'linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.45)), url("/fd.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: '#fff'
@@ -21,27 +21,6 @@ export default function HeroSection() {
           <p className="mt-4 text-xl lg:text-2xl font-semibold" style={{ color: '#838385' }}>
             Redesigning Africa’s Future, <span style={{ color: '#00486B' }}>Brick by Brick.</span>
           </p>
-
-          <p className="mt-6 max-w-xl text-sm lg:text-base" style={{ color: '#f7f7f7' }}>
-            Ghana-based developer delivering sustainable, community-focused housing and master-planned neighbourhoods.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#about"
-              className="inline-block px-5 py-3 rounded-full font-semibold"
-              style={{ backgroundColor: '#EF641C', color: '#fff' }}
-            >
-              About Us
-            </a>
-            <a
-              href="#services"
-              className="inline-block px-5 py-3 rounded-full font-semibold border"
-              style={{ borderColor: '#00486B', color: '#00486B', background: 'transparent' }}
-            >
-              Our Services
-            </a>
-          </div>
         </div>
 
         <div className="lg:w-1/2 text-left">

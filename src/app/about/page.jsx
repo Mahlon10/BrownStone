@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import AboutUs from '@/components/Pages/AboutUs';
+import AboutUs from './components/Pages/AboutUs';
 import Link from 'next/link';
 
 export default function About() {
