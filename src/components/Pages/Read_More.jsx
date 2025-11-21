@@ -28,29 +28,30 @@ export default function ReadMore() {
       <div className="max-w-6xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
         {/* Text content */}
         <div className="about-text space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold leading-snug">
-            More Information <br /> About Travels
+          <h2 className="text-3xl md:text-4xl font-bold leading-snug text-[#012e44]">
+            More Information <br /> About BrownStone
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-            You can find the most beautiful and pleasant places at the best
-            prices with special discounts. You choose the place, and we’ll guide
-            you all the way — get your spot now!
+            Brownstone Construction Firm is a Ghana-based property development and construction company committed to delivering high-quality, sustainable, 
+            and community-focused housing solutions. Founded in 2024, 
+            Brownstone was established in response to the growing demand for modern, 
+            thoughtfully designed living spaces in Ghana’s expanding urban and peri-urban areas.
           </p>
           <a
             href="#"
-            className="inline-block bg-blue-800 hover:bg-blue-900 text-white font-semibold px-6 py-3 rounded-md transition-all duration-300"
+            className="inline-block bg-[#EF641C] hover:bg-[#c44f12] text-[#f6f5f5] font-semibold px-6 py-3 rounded-md transition-all duration-300"
           >
-            Reserve a Place
+            Read More
           </a>
         </div>
 
         {/* Image side */}
         <div className="about-images flex justify-center items-center gap-6">
-          <div className="overflow-hidden shadow-lg h-40">
+          <div className="h-20 mb-60">
             <Image
-              src="/profilecut.png"
+              src="/profilecut2.png"
               alt="tig"
-              width={255}
+              width={450}
               height={100}
               className="object-cover hover:scale-110 transition-transform duration-500"
             />
