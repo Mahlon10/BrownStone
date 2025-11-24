@@ -1,51 +1,24 @@
 'use client';
-
 import React from 'react';
 
 export default function FixedImage() {
   return (
-    <div className="relative">
-      {/* Fixed full-screen background image */}
-      <div
-        aria-hidden="true"
-        className="fixed inset-0 -z-10"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(10,10,10,0.35), rgba(10,10,10,0.35)), url('/fixed-bg.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+    <section
+      className="relative h-screen w-full bg-fixed bg-center bg-cover"
+      style={{ backgroundImage: "url('/fix.png')" }}
+    >
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
 
-      {/* Content block that sits over the fixed image */}
-      <section className="min-h-screen flex items-center">
-        <div className="container mx-auto px-6 lg:px-20 text-white">
-          <h1 style={{ color: '#EF641C' }} className="text-4xl lg:text-6xl font-extrabold">
-            Brownstone Construction Firm
-          </h1>
-          <p className="mt-4 text-xl lg:text-2xl font-semibold" style={{ color: '#838385' }}>
-            Redesigning Africa’s Future, <span style={{ color: '#00486B' }}>Brick by Brick.</span>
+      <div className="relative flex h-full items-center justify-end px-8">
+        <div className="bg-black/60 backdrop-blur-md p-6 md:p-10 max-w-sm rounded-xl shadow-xl">
+          <p className="text-white text-lg leading-relaxed" style={{fontFamily: 'Montserrat, sans-serif'}}>
+            Celestia is a modern lakeside sanctuary featuring eight terraced
+            townhomes and five private chalets. Each residence offers comfort,
+            privacy, and serene views of surrounding greenery.
           </p>
         </div>
-      </section>
-
-      {/* Extra content to allow scrolling while image remains fixed */}
-      <section className="bg-white">
-        <div className="container mx-auto px-6 lg:px-20 py-16">
-          <h2 className="text-2xl font-semibold" style={{ color: '#411600' }}>Scroll content</h2>
-          <p className="mt-4 text-gray-700">
-            This area scrolls while the image behind remains fixed. Add your site sections below.
-          </p>
-
-          {/* filler to demonstrate scroll */}
-          <div className="mt-8 space-y-6">
-            <p className="text-gray-600">...</p>
-            <p className="text-gray-600">...</p>
-            <p className="text-gray-600">...</p>
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

@@ -1,107 +1,86 @@
-'use client';
+"use client";
+import Image from "next/image";
 
-import React from 'react';
-import Link from 'next/link';
+export default function Services() {
+  const services = [
+    {
+      title: "Residential Construction",
+      img: "/pic.png",
+      content:
+        "We design and build high-quality homes and housing developments tailored to the needs of individuals, families, and investors. Our focus is on functional design, modern finishes, and environmental sustainability.",
+    },
+    {
+      title: "Master-Planned Communities",
+      img: "/images/community.jpg",
+      content:
+        "Brownstone specializes in building holistic neighborhoods with integrated features such as nurseries, schools, community hospitals, clinics, police posts, retail zones, and green parks.",
+    },
+    {
+      title: "Sustainable & Smart Infrastructure",
+      img: "/images/smart-infra.jpg",
+      content:
+        "We are committed to sustainable development through solar power integration, EV charging stations, water management systems, and agri-tech zones to promote urban farming.",
+    },
+    {
+      title: "Real Estate Investment Development",
+      img: "/images/investment.jpg",
+      content:
+        "We work with investors to develop build-to-sell or build-to-rent projects. Our team handles planning, approvals, development oversight, and sales & marketing support.",
+    },
+    {
+      title: "Project Management & Consultancy",
+      img: "/images/project-mgt.jpg",
+      content:
+        "We provide end-to-end project management services, including planning, budgeting, construction supervision, and upgrading existing developments.",
+    },
+  ];
 
-export default function Body() {
-    return (
-        <>
-            <main className="w-full px-6 md:px-16 py-30 space-y-20 text-gray-800 min-h-screen bg-[url('/bkg7.jpg')] bg-cover bg-center bg-no-repeat">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="flex justify-center items-center text-3xl font-bold mb-4">EXPLORE OUR ROOMS</h2>
-                    <div className="h-1 w-20 mx-auto bg-yellow-900 mb-12" aria-hidden="true"></div>
+  return (
+    <section id="services" className="py-20 bg-[#dedede]" style={{fontFamily: 'Montserrat, sans-serif'}}>
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center" style={{ color: "#012e44" }}>
+          Our Services
+        </h2>
 
-                    {/* Deluxe Section */}
-                    <div className="mb-34">
-                        <h3 className="text-2xl font-semibold mb-8 text-start">DELUXE MAY</h3>
-                        <div className="space-y-8">
-                            {[1, 2, 3].map((item) => (
-                                <div key={`deluxe-${item}`} className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
-                                    <div className="md:w-1/3">
-                                        <img src={`/deluxe-${item}.jpg`} alt={`Deluxe Room ${item}`} className="w-full h-64 object-cover" />
-                                    </div>
-                                    <div className="md:w-2/3 p-6 flex flex-col justify-between">
-                                        <div>
-                                            <h4 className="text-xl font-semibold mb-2">Deluxe Suite {item}</h4>
-                                            <p className="text-gray-600 mb-4">Luxurious room with king-size bed, private balcony, and stunning city views.</p>
-                                            <ul className="text-sm text-gray-500 mb-4">
-                                                <li>• 45 sq.m of luxury</li>
-                                                <li>• Complimentary breakfast</li>
-                                                <li>• Free Wi-Fi</li>
-                                            </ul>
-                                        </div>
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-2xl font-bold text-yellow-900">$1400/night</span>
-                                            <button className="bg-yellow-900 text-white px-6 py-2 rounded ml-90 hover:bg-yellow-800 cursor-pointer">Gallery</button>
-                                            <button className="bg-yellow-900 text-white px-6 py-2 rounded hover:bg-yellow-800 cursor-pointer">Book Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+        {/* small orange line under heading */}
+        <div className="flex justify-center">
+          <div className="w-20 h-1 bg-[#EF641C] rounded mt-2" />
+        </div>
 
-                    {/* Vintage Section */}
-                    <div className="mb-34">
-                        <h3 className="text-2xl font-semibold mb-8 text-start">VINTAGE MAY</h3>
-                        <div className="space-y-8">
-                            {[1, 2, 3].map((item) => (
-                                <div key={`vintage-${item}`} className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
-                                    <div className="md:w-1/3">
-                                        <img src={`/vintage-${item}.jpg`} alt={`Vintage Room ${item}`} className="w-full h-64 object-cover" />
-                                    </div>
-                                    <div className="md:w-2/3 p-6 flex flex-col justify-between">
-                                        <div>
-                                            <h4 className="text-xl font-semibold mb-2">Vintage Suite {item}</h4>
-                                            <p className="text-gray-600 mb-4">Premium suite with exclusive amenities and personalized service.</p>
-                                            <ul className="text-sm text-gray-500 mb-4">
-                                                <li>• 60 sq.m of elegance</li>
-                                                <li>• 24/7 butler service</li>
-                                                <li>• Private jacuzzi</li>
-                                            </ul>
-                                        </div>
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-2xl font-bold text-yellow-900">$987/night</span>
-                                            <button className="bg-yellow-900 text-white px-6 py-2 rounded ml-90 hover:bg-yellow-800 cursor-pointer">Gallery</button>
-                                            <button className="bg-yellow-900 text-white px-6 py-2 rounded hover:bg-yellow-800 cursor-pointer">Book Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+        {/* descriptive text below the line */}
+        <p className="text-center text-lg text-[#012e44] max-w-3xl mx-auto mt-6">
+          At Brownstone Construction Firm, we offer a comprehensive range of real estate development and construction services:
+        </p>
 
-                    {/* Le Petite Section */}
-                    <div className="mb-16">
-                        <h3 className="text-2xl font-semibold mb-8 text-start">LE PETITE MAY</h3>
-                        <div className="space-y-8">
-                            {[1, 2, 3].map((item) => (
-                                <div key={`petite-${item}`} className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
-                                    <div className="md:w-1/3">
-                                        <img src={`/petite-${item}.jpg`} alt={`Petite Room ${item}`} className="w-full h-64 object-cover" />
-                                    </div>
-                                    <div className="md:w-2/3 p-6 flex flex-col justify-between">
-                                        <div>
-                                            <h4 className="text-xl font-semibold mb-2">Le Petite Suite {item}</h4>
-                                            <p className="text-gray-600 mb-4">Classic-styled room with traditional decor and modern amenities.</p>
-                                            <ul className="text-sm text-gray-500 mb-4">
-                                                <li>• 40 sq.m of classic charm</li>
-                                                <li>• Antique furnishings</li>
-                                                <li>• Heritage view</li>
-                                            </ul>
-                                        </div>
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-2xl font-bold text-yellow-900">$599/night</span>
-                                            <button className="bg-yellow-900 text-white px-6 py-2 rounded ml-90 hover:bg-yellow-800 cursor-pointer">Gallery</button>
-                                            <button className="bg-yellow-900 text-white px-6 py-2 rounded hover:bg-yellow-800 cursor-pointer">Book Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </>
-    );
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition-all duration-300 border"
+              style={{ borderColor: "#83838544" }}
+            >
+              <div className="relative h-52 w-full">
+                <Image
+                  src={service.img}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="p-6">
+                <h3
+                  className="text-2xl font-semibold mb-3"
+                  style={{ color: "#012e44" }}
+                >
+                  {service.title}
+                </h3>
+                <p className="text-[#012e44] leading-relaxed">{service.content}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

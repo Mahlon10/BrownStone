@@ -27,10 +27,15 @@ export default function ReadMore() {
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-center">
         {/* Text content */}
-        <div className="about-text space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold leading-snug text-[#012e44]">
-            More Information <br /> About BrownStone
-          </h2>
+        <div className="about-text space-y-6" style={{fontFamily: 'Montserrat, sans-serif'}}>
+          <h2 className="text-3xl font-bold mb-3" style={{ color: "#012e44" }}>
+          Our Story
+        </h2>
+
+        {/* small orange line under heading */}
+        <div className="flex justify-left">
+          <div className="w-20 h-1 bg-[#EF641C] rounded " />
+        </div>
           <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
             Brownstone Construction Firm is a Ghana-based property development and construction company committed to delivering high-quality, sustainable, 
             and community-focused housing solutions. Founded in 2024, 
@@ -38,7 +43,7 @@ export default function ReadMore() {
             thoughtfully designed living spaces in Ghana’s expanding urban and peri-urban areas.
           </p>
           <a
-            href="#"
+            href="/about"
             className="inline-block bg-[#EF641C] hover:bg-[#c44f12] text-[#f6f5f5] font-semibold px-6 py-3 rounded-md transition-all duration-300"
           >
             Read More
@@ -47,9 +52,9 @@ export default function ReadMore() {
 
         {/* Image side */}
         <div className="about-images flex justify-center items-center gap-6">
-          <div className="h-20 mb-60">
+          <div className="h-20 mb-60 ml-20">
             <Image
-              src="/profilecut2.png"
+              src="/helmet.jpg"
               alt="tig"
               width={450}
               height={100}

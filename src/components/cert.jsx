@@ -17,7 +17,7 @@ export default function Cert() {
         });
 
         sr.reveal('.about-text', { origin: 'left', interval: 100 });
-        sr.reveal('.about-images', { origin: 'right', interval: 100 });
+        sr.reveal('.about-heading', { origin: 'right', interval: 100 });
       }
     })();
   }, []);
@@ -41,18 +41,24 @@ export default function Cert() {
   ];
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-[#dedede]">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-          {/* Left: reduced-size image */}
-          <div className="about-images ml-[-40]">
-            <div className="about-images ml-[-40]">
-            <img
-              src="/value1.png"
-              alt="Value"
-              className="w-110 h-100 mb-12 md:h-64 object-cover hover:scale-110 transition-transform duration-500"
-            />
-          </div>
+          {/* Left: big heading (replaces image) */}
+          <div className="about-heading flex items-center justify-center md:justify-start">
+            <h2
+              className="leading-tight"
+              style={{
+                fontFamily: 'Montserrat, sans-serif',
+                fontWeight: 700,
+                fontSize: '1rem', /* fallback for text-4xl */
+                color: '#012e44',
+                lineHeight: 1.05,
+              }}
+            >
+              <span className="block text-3xl md:text-2xl lg:text-5xl">What We</span>
+              <span className="block text-3xl md:text-2xl lg:text-5xl">Stand For</span>
+            </h2>
           </div>
 
           {/* Right: collapsible accordion (revealed by ScrollReveal) */}
@@ -74,7 +80,7 @@ export default function Cert() {
                         }}
                       >
                         {/* Larger title */}
-                        <span className="text-lg md:text-xl lg:text-2xl font-semibold leading-tight">
+                        <span className="text-lg md:text-xl lg:text-xl font-semibold leading-tight">
                           {p.title}
                         </span>
 

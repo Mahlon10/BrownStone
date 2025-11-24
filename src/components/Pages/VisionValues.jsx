@@ -7,7 +7,6 @@ export default function VisionValues() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-8 lg:px-20">
         <h2 className="text-3xl font-bold" style={{ color: '#411600' }}>Vision & Values</h2>
-
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 border rounded">
             <h3 className="font-semibold text-lg" style={{ color: '#00486B' }}>Our Vision</h3>
